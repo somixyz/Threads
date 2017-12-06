@@ -2,10 +2,16 @@
 import java.util.Random;
 import java.util.Scanner;
 
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
+/**
+*Niti (Threads) u Javi su objekti klase Thread. Klasa Thread nasleđuje interfejs Runnable, koji
+*ima jednu jedinu metodu - run(). Kod koji se nalazi u metodi run() je kod koji se izvršava
+*pokretanjem nove niti. Pošto niti nisu ništa drugo nego objekti, potrebno je kreirati klasu koja
+*ce ili da nasledi Thread, ili da implementira Runnable.
+*
+*Eksplicitno redefinisemo metodu run() klase Thread.
+*Pozivom metode start() pocinje se sa izvrsavanje nove niti, dok metoda start() poziva izvrsavanje 
+* metode run().  
+*
  */
 /**
  *
