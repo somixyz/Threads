@@ -3,15 +3,16 @@ import java.util.Random;
 import java.util.Scanner;
 
 /**
-*Niti (Threads) u Javi su objekti klase Thread. Klasa Thread nasleđuje interfejs Runnable, koji
-*ima jednu jedinu metodu - run(). Kod koji se nalazi u metodi run() je kod koji se izvršava
-*pokretanjem nove niti. Pošto niti nisu ništa drugo nego objekti, potrebno je kreirati klasu koja
-*ce ili da nasledi Thread, ili da implementira Runnable.
-*
-*Eksplicitno redefinisemo metodu run() klase Thread.
-*Pozivom metode start() pocinje se sa izvrsavanje nove niti, dok metoda start() poziva izvrsavanje 
-* metode run().  
-*
+ * Niti (Threads) u Javi su objekti klase Thread. Klasa Thread nasleđuje
+ * interfejs Runnable, koji ima jednu jedinu metodu - run(). Kod koji se nalazi
+ * u metodi run() je kod koji se izvršava pokretanjem nove niti. Pošto niti nisu
+ * ništa drugo nego objekti, potrebno je kreirati klasu koja ce ili da nasledi
+ * Thread, ili da implementira Runnable.
+ *
+ * Eksplicitno redefinisemo metodu run() klase Thread. Pozivom metode start()
+ * pocinje se sa izvrsavanje nove niti, dok metoda start() poziva izvrsavanje
+ * metode run().
+ *
  */
 /**
  *
@@ -41,13 +42,16 @@ public class Nit extends Thread {
     }
 
     public static void main(String[] args) {
-        new Nit("A").start();
-        new Nit("B").start();
-        new Nit("C").start();
-        new Nit("D").start();
-        new Nit("E").start();
+//        new Nit("A").start();
+//        new Nit("B").start();
+//        new Nit("C").start();
+//        new Nit("D").start();
+//        new Nit("E").start();
         //za prekid ukucati "kraj"
-                if(new Scanner(System.in).hasNext("kraj")){System.exit(0);}
+//        if (new Scanner(System.in).hasNext("kraj")) {
+//            System.exit(0);
+//        }
+     
 
     }
 }
