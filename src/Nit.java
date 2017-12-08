@@ -1,5 +1,3 @@
-package thread;
-
 
 import java.util.Random;
 import java.util.Scanner;

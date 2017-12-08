@@ -11,20 +11,17 @@ package wait_notifyall_3andmore;
  */
 public class Konzola {
 
-    boolean isCao, isZdravo, isDobarDan;
-
+    boolean isCao, isZdravo, isDobarDan; 
     public Konzola() {
         isCao = true;
         isZdravo = false;
         isDobarDan = false;
-    }
-
+    } 
     public synchronized void cao() {
         try {
             //if
             while (isCao == false) 
-                wait();
-            
+                wait(); 
             System.out.println("CAO!");
             isCao = false;
             isZdravo = true;
@@ -38,9 +35,7 @@ public class Konzola {
         try {
             //if
             while (isZdravo == false) 
-                wait();
-            
-
+                wait(); 
             System.out.println("\t\t ZDRAVO!");
             isCao = false;
             isZdravo = false;
@@ -54,8 +49,7 @@ public class Konzola {
         try {
             //if
             while (isDobarDan == false) 
-                wait();
-            
+                wait(); 
             System.out.println("\t\t\t\t DOBAR DAN!");
             isCao = true;
             isZdravo = false;
@@ -69,11 +63,9 @@ public class Konzola {
 class Cao extends Thread {
 
     Konzola konzola;
-
     public Cao(Konzola konzola) {
         this.konzola = konzola;
-    }
-
+    } 
     @Override
     public void run() {
         for (int i = 0; i < 50; i++) {
@@ -85,11 +77,9 @@ class Cao extends Thread {
 class Zdravo extends Thread {
 
     Konzola konzola;
-
     public Zdravo(Konzola konzola) {
         this.konzola = konzola;
-    }
-
+    } 
     @Override
     public void run() {
         for (int i = 0; i < 50; i++) {
@@ -101,11 +91,9 @@ class Zdravo extends Thread {
 class DobarDan extends Thread {
 
     Konzola konzola;
-
     public DobarDan(Konzola konzola) {
         this.konzola = konzola;
-    }
-
+    } 
     @Override
     public void run() {
         for (int i = 0; i < 50; i++) {
@@ -114,12 +102,11 @@ class DobarDan extends Thread {
     }
 }
 
-class Test {
-
+class Test { 
     public static void main(String[] args) {
         Konzola konzola = new Konzola();
         new Cao(konzola).start();
         new Zdravo(konzola).start();
         new DobarDan(konzola).start();
     }
-}
+}  
