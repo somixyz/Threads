@@ -24,7 +24,10 @@ public class Nit implements Runnable {
     @Override
     public void run() {
         try {
-            //
+            //u while uslovu se ispituje da li je trenutna nit prekinuta ako nije
+            //izvrsavaju se dalje koraci u while loop-u, sve dok se ne pozove metoda inerrupt()
+            //koja boolean flag postavlja na true, a uslov postaje false i prekida se while loop
+            //pa se zavrsava i metoda run()
             while (!Thread.currentThread().isInterrupted()) {
                 System.out.println("Thread ID: " + Thread.currentThread().getId() + " - " +ime );
                 int pauza = random.nextInt(5) * 1000;
@@ -36,6 +39,8 @@ public class Nit implements Runnable {
 
     public static void main(String[] args) throws Exception {
 
+        
+        //Ovde koristimo metodu inerrupt() kako bismo prekinuli izvrsavanje niti 
         Thread A = new Thread(new Nit("A"));
         A.start();
         Thread B = new Thread(new Nit("B"));
