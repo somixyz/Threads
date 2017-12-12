@@ -16,7 +16,7 @@ import javax.swing.JFrame;
  * Thread. Ova nit je zadužena za osluškivanje događaja kao što su pritiskanje
  * dugmeta, klik mišem itd. U našem slučaju desio se klik mišem na dugme
  * Osluskuj i actionPerformed() je počela sa izvršavanjem, i to u ovoj Event
- * Dispatch niti. Metoda .accept() je tzv. “bloker” i k d nede nastaviti da se
+ * Dispatch niti. Metoda .accept() je tzv. “bloker” i kod nece nastaviti da se
  * izvršava sve dok ne dođe do TCP zahteva. Samim tim, ni metoda
  * actionPerformed() se nede završiti, pa ni Event Dispatch nit nije u
  * mogudnosti da osluškuje na nove događaje (klik na dugme Zatvori). Problem bi
@@ -32,19 +32,19 @@ public class Forma extends JFrame {
     JButton dugme_1;
     JButton dugme_2;
 
-    public Forma() {
+    public Forma() throws InterruptedException {
 
         setSize(150, 150);
         setLayout(new FlowLayout());
         dugme_1 = new JButton("Osluskuj");
         dugme_1.setSize(60, 20);
-        Thread trd = new Thread() {
-            @Override
-            public void run() {
+//        Thread trd = new Thread() {
+//            @Override
+//            public void run() {
                 dugme_1.addActionListener(new OsluskujListener()); 
-            }
-        }; 
-        trd.start();
+//            }
+//        }; 
+//        trd.start();
         dugme_2 = new JButton("Zatvori"); 
         dugme_2.setSize(60, 20);
         dugme_2.addActionListener(new ZatvoriListener());
@@ -54,7 +54,7 @@ public class Forma extends JFrame {
 
     }
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws InterruptedException {
         new Forma();
     }
 }
