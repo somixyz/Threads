@@ -18,13 +18,24 @@ import java.util.logging.Logger;
  */
 public class OsluskujListener implements ActionListener {
 
+    
+    
     @Override
     public void actionPerformed(ActionEvent arg0) {
-        try {
-            ServerSocket serverSoket = new ServerSocket(8765);
-            Socket soket = serverSoket.accept();
-        } catch (IOException e) {
-        }
-    }
-
+//        Thread trd = new Thread() {
+//            @Override
+//            public void run() {
+                ServerSocket serverSoket;
+                try {
+                    serverSoket = new ServerSocket(8765);
+                    System.out.println("SERVER: Osluskujem....."); 
+                    Socket soket = serverSoket.accept();
+                } catch (Exception ex) {
+                    Logger.getLogger(OsluskujListener.class.getName()).log(Level.SEVERE, null, ex);
+                    ex.printStackTrace();
+                }
+            }
+//        };
+//        trd.start();
+//    }
 }

@@ -18,6 +18,7 @@ public class ZatvoriListener implements ActionListener {
 
     @Override
     public void actionPerformed(ActionEvent arg0) {
+        System.out.println("SERVER: Ugasen");
         System.exit(0);
     }
 

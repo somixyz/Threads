@@ -1,5 +1,7 @@
 
 import java.awt.FlowLayout;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 
@@ -38,23 +40,24 @@ public class Forma extends JFrame {
         setLayout(new FlowLayout());
         dugme_1 = new JButton("Osluskuj");
         dugme_1.setSize(60, 20);
-//        Thread trd = new Thread() {
-//            @Override
-//            public void run() {
-                dugme_1.addActionListener(new OsluskujListener()); 
-//            }
-//        }; 
-//        trd.start();
-        dugme_2 = new JButton("Zatvori"); 
+        dugme_1.addActionListener(new OsluskujListener());
+        dugme_2 = new JButton("Zatvori");
         dugme_2.setSize(60, 20);
         dugme_2.addActionListener(new ZatvoriListener());
-        add(dugme_1); 
-        add(dugme_2); 
+        add(dugme_1);
+        add(dugme_2);
         setVisible(true);
 
     }
 
     public static void main(String[] args) throws InterruptedException {
+        //Ovde se pokrece ("glavna") EventDespecher nit, medjutim postavljanjem posebne niti 
+        //za OsluskujListener omogucavamo da se glavna nit rastereti tj da ne zavisi od 
+        //izvrsavanja metode u konkretnom listeneru. 
+        
+        // Da bi bilo moguce prekinuti izvrsavanje osluskivanja servera
+        //potrebno je u predefinisanoj metodi klase OsluskujListener odkomentarisati 
+        //delove koda 
         new Forma();
     }
 }
